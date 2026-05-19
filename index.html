@@ -3,32 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>고양이 잘 키우는 법</title>
+  <title>머슬팩토리 경상대점 | 진주 가좌동 24시간 헬스장 | 초보 환영</title>
+  <meta name="description" content="진주 가좌동 24시간 헬스장 머슬팩토리 경상대점. 운동 처음이어도 괜찮습니다. 트레이너 상주, 기구 사용법 안내, PT 강매 없는 친절한 헬스장." />
+  <meta name="keywords" content="진주 헬스장, 가좌동 헬스장, 경상대 헬스장, 24시 헬스장, 초보 헬스장, PT 없는 헬스장, 친절한 헬스장, 기구 사용법 알려주는 헬스장, 머슬팩토리" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0a0a0f;
+      --bg: #0c0c0e;
+      --bg2: #111114;
       --surface: rgba(255,255,255,0.04);
-      --surface-hover: rgba(255,255,255,0.08);
+      --surface2: rgba(255,255,255,0.07);
       --border: rgba(255,255,255,0.08);
-      --border-hover: rgba(255,255,255,0.18);
+      --border2: rgba(255,255,255,0.14);
       --text: #f0eff4;
-      --muted: #8b8a96;
-      --accent1: #c084fc;
-      --accent2: #f472b6;
-      --accent3: #38bdf8;
-      --accent4: #34d399;
-      --accent5: #fb923c;
-      --danger: #f87171;
+      --text2: rgba(240,239,244,0.75);
+      --muted: #6b6a76;
+      --red: #ef4444;
+      --red2: #f97316;
+      --gold: #f59e0b;
+      --green: #22c55e;
+      --blue: #3b82f6;
       --radius-xl: 24px;
       --radius-lg: 16px;
       --radius-md: 12px;
+      --radius-sm: 8px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -36,559 +39,1432 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* ─── Background noise + glow ─── */
-    body::before {
-      content: '';
+    /* ─── STICKY NAV ─── */
+    nav {
       position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(192,132,252,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(56,189,248,0.10) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 50% 50%, rgba(244,114,182,0.06) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(12,12,14,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--red);
+      color: #fff !important;
+      padding: 7px 18px;
+      border-radius: 999px;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: #dc2626 !important; color: #fff !important; }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
     }
 
-    /* ─── Hero ─── */
+    /* ─── SECTIONS ─── */
+    section { position: relative; }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── HERO ─── */
     .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 24px 80px;
       position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 80px 24px 60px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 30%, rgba(239,68,68,0.14) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(249,115,22,0.10) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      width: 100%;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(192,132,252,0.15);
-      border: 1px solid rgba(192,132,252,0.3);
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.30);
       border-radius: 999px;
       padding: 6px 18px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent1);
-      letter-spacing: 0.04em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fca5a5;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
     }
 
     .hero-title {
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-size: clamp(2.6rem, 6.5vw, 5rem);
       font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      background: linear-gradient(135deg, #fff 30%, var(--accent1) 70%, var(--accent2) 100%);
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      margin-bottom: 12px;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(120deg, var(--red) 20%, var(--red2) 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 16px;
     }
 
-    .hero-sub {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 460px;
-      margin: 0 auto;
-    }
-
-    .hero-paw {
-      font-size: 3.5rem;
-      display: block;
+    .hero-sub-title {
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      font-weight: 700;
+      color: var(--text2);
       margin-bottom: 20px;
-      animation: float 3s ease-in-out infinite;
+      letter-spacing: -0.02em;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-10px); }
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 440px;
     }
 
-    /* ─── Bento Grid ─── */
-    .bento {
-      position: relative;
-      z-index: 1;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: auto;
-      gap: 16px;
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
     }
-
-    /* Card base */
-    .tile {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 28px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .tile:hover {
-      border-color: var(--border-hover);
-      background: var(--surface-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-    }
-
-    /* Glow accent top-left corner per tile */
-    .tile::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      opacity: 0;
-      transition: opacity 0.3s;
-      filter: blur(40px);
-      pointer-events: none;
-    }
-    .tile:hover::before { opacity: 1; }
-
-    .tile-purple::before  { background: var(--accent1); }
-    .tile-pink::before    { background: var(--accent2); }
-    .tile-blue::before    { background: var(--accent3); }
-    .tile-green::before   { background: var(--accent4); }
-    .tile-orange::before  { background: var(--accent5); }
-    .tile-red::before     { background: var(--danger); }
-
-    /* Grid spans */
-    .col-4  { grid-column: span 4; }
-    .col-5  { grid-column: span 5; }
-    .col-6  { grid-column: span 6; }
-    .col-7  { grid-column: span 7; }
-    .col-8  { grid-column: span 8; }
-    .col-12 { grid-column: span 12; }
-
-    /* ─── Tile label ─── */
-    .tile-label {
-      display: inline-flex;
+    .hero-tag {
+      display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border2);
       border-radius: 999px;
-      margin-bottom: 18px;
-    }
-
-    .label-purple { background: rgba(192,132,252,0.15); color: var(--accent1); }
-    .label-pink   { background: rgba(244,114,182,0.15); color: var(--accent2); }
-    .label-blue   { background: rgba(56,189,248,0.15);  color: var(--accent3); }
-    .label-green  { background: rgba(52,211,153,0.15);  color: var(--accent4); }
-    .label-orange { background: rgba(251,146,60,0.15);  color: var(--accent5); }
-    .label-red    { background: rgba(248,113,113,0.15); color: var(--danger);  }
-
-    /* ─── Tile heading ─── */
-    .tile h2 {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-
-    /* ─── Checklist ─── */
-    .checklist { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-    .checklist li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.92rem;
-      color: rgba(240,239,244,0.85);
-    }
-    .checklist li::before {
-      content: '✦';
-      font-size: 0.6rem;
-      margin-top: 5px;
-      flex-shrink: 0;
-      opacity: 0.6;
-    }
-    .tile-purple .checklist li::before { color: var(--accent1); }
-    .tile-pink   .checklist li::before { color: var(--accent2); }
-    .tile-blue   .checklist li::before { color: var(--accent3); }
-    .tile-green  .checklist li::before { color: var(--accent4); }
-    .tile-orange .checklist li::before { color: var(--accent5); }
-
-    /* ─── Tag pills ─── */
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 999px;
-      padding: 5px 14px;
-      font-size: 0.82rem;
+      padding: 7px 16px;
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--text);
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .tag:hover {
-      background: rgba(192,132,252,0.15);
-      border-color: rgba(192,132,252,0.4);
     }
 
-    /* ─── Danger alert ─── */
-    .alert {
+    .hero-btns {
       display: flex;
-      align-items: flex-start;
+      flex-wrap: wrap;
       gap: 12px;
-      background: rgba(248,113,113,0.08);
-      border: 1px solid rgba(248,113,113,0.25);
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
-      margin-top: 16px;
-      font-size: 0.88rem;
-      color: rgba(240,239,244,0.8);
     }
-    .alert-icon { font-size: 1.1rem; flex-shrink: 0; }
-    .alert strong { color: var(--danger); }
 
-    /* ─── Stat row ─── */
-    .stat-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 4px;
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--red);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 15px 28px;
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(239,68,68,0.35);
     }
-    .stat-box {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: var(--radius-md);
-      padding: 14px;
-      text-align: center;
+    .btn-primary:hover {
+      background: #dc2626;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(239,68,68,0.45);
     }
-    .stat-box .stat-val {
-      font-size: 1.5rem;
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 28px;
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      border: 1px solid var(--border2);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover {
+      background: var(--surface2);
+      border-color: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 52px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat-val {
+      font-size: 2rem;
       font-weight: 900;
-      letter-spacing: -0.02em;
-      display: block;
+      letter-spacing: -0.04em;
+      background: linear-gradient(120deg, var(--red), var(--red2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .stat-box .stat-lbl {
-      font-size: 0.75rem;
+    .hero-stat-lbl {
+      font-size: 0.8rem;
       color: var(--muted);
       margin-top: 2px;
     }
 
-    /* ─── Behavior table ─── */
-    .behavior-list { display: flex; flex-direction: column; gap: 10px; }
-    .behavior-item {
+    /* ─── SECTION HEADER ─── */
+    .sec-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .sec-tag {
+      display: inline-block;
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.25);
+      color: #fca5a5;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .sec-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .sec-desc {
+      font-size: 1rem;
+      color: var(--text2);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ─── EMPATHY SECTION ─── */
+    .empathy-section {
+      padding: 100px 24px;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+    .empathy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .empathy-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .empathy-card:hover {
+      border-color: rgba(239,68,68,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .empathy-who {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--red2);
+      background: rgba(249,115,22,0.1);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .empathy-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .empathy-worries {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .empathy-worries li {
+      font-size: 0.9rem;
+      color: var(--text2);
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      position: relative;
+      padding-left: 30px;
+    }
+    .empathy-worries li::before {
+      content: '"';
+      position: absolute;
+      left: 12px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      font-weight: 900;
+      line-height: 1;
+      top: 10px;
+    }
+
+    .empathy-answer {
+      max-width: 1060px;
+      margin: 52px auto 0;
+      background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(249,115,22,0.05));
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      text-align: center;
+    }
+    .empathy-answer h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .empathy-answer p {
+      font-size: 1rem;
+      color: var(--text2);
+      line-height: 1.8;
+    }
+
+    /* ─── ADVANTAGES ─── */
+    .advantages-section {
+      padding: 100px 24px;
+    }
+    .adv-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .adv-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .adv-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      opacity: 0.06;
+      background: var(--red);
+      transition: opacity 0.3s;
+    }
+    .adv-card:hover {
+      border-color: rgba(239,68,68,0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .adv-card:hover::before { opacity: 0.12; }
+    .adv-icon {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .adv-num {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+    .adv-card h3 {
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+    .adv-quote {
+      font-size: 1rem;
+      color: var(--text2);
+      font-style: italic;
+      margin-bottom: 20px;
+      padding: 12px 18px;
+      background: rgba(255,255,255,0.04);
+      border-left: 3px solid var(--red);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .adv-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .adv-list li {
+      font-size: 0.9rem;
+      color: var(--text2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .adv-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--red2);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .adv-highlight {
+      background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(249,115,22,0.07));
+      border-color: rgba(239,68,68,0.2);
+    }
+
+    /* ─── FACILITY ─── */
+    .facility-section {
+      padding: 100px 24px;
+      background: var(--bg2);
+    }
+    .facility-placeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .facility-item {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--muted);
+      transition: border-color 0.2s;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .facility-item:first-child {
+      grid-column: span 2;
+      aspect-ratio: 16/7;
+    }
+    .facility-item .fac-icon { font-size: 1.8rem; }
+    .facility-item:hover { border-color: rgba(239,68,68,0.25); color: var(--text2); }
+
+    /* ─── RECOMMEND ─── */
+    .recommend-section {
+      padding: 100px 24px;
+    }
+    .recommend-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .rec-item {
       display: flex;
       align-items: center;
       gap: 14px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
-      transition: background 0.2s;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
     }
-    .behavior-item:hover { background: rgba(255,255,255,0.07); }
-    .behavior-emoji { font-size: 1.4rem; width: 36px; text-align: center; flex-shrink: 0; }
-    .behavior-text strong { font-size: 0.88rem; font-weight: 700; color: var(--text); display: block; }
-    .behavior-text span   { font-size: 0.82rem; color: var(--muted); }
+    .rec-item:hover {
+      border-color: rgba(239,68,68,0.25);
+      background: var(--surface2);
+      transform: translateX(4px);
+    }
+    .rec-check {
+      width: 28px; height: 28px;
+      background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      color: var(--green);
+    }
+    .rec-item span {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
 
-    /* ─── Env tips ─── */
-    .env-grid {
+    /* ─── STEPS ─── */
+    .steps-section {
+      padding: 100px 24px;
+      background: var(--bg2);
+    }
+    .steps-row {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 10px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      max-width: 1060px;
+      margin: 0 auto;
+      position: relative;
     }
-    .env-item {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: var(--radius-md);
-      padding: 16px;
+    .steps-row::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), var(--red2));
+      z-index: 0;
     }
-    .env-item .env-icon { font-size: 1.5rem; margin-bottom: 8px; display: block; }
-    .env-item p { font-size: 0.82rem; color: rgba(240,239,244,0.7); line-height: 1.5; }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--red), var(--red2));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(239,68,68,0.4);
+      flex-shrink: 0;
+    }
+    .step-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+    .step h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .step p {
+      font-size: 0.84rem;
+      color: var(--text2);
+      line-height: 1.6;
+    }
 
-    /* ─── Hero big number tile ─── */
-    .big-num {
-      font-size: 3.8rem;
+    /* ─── FAQ ─── */
+    .faq-section {
+      padding: 100px 24px;
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: rgba(239,68,68,0.2); }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 24px;
+      cursor: pointer;
+      user-select: none;
+      gap: 16px;
+    }
+    .faq-q-text {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+    .faq-q-badge {
+      flex-shrink: 0;
+      background: rgba(239,68,68,0.12);
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+    }
+    .faq-toggle {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: var(--surface2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      transition: transform 0.25s, background 0.2s;
+    }
+    .faq-item.open .faq-toggle {
+      transform: rotate(45deg);
+      background: rgba(239,68,68,0.15);
+      color: var(--red);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .faq-a-inner {
+      padding: 0 24px 22px 52px;
+      font-size: 0.92rem;
+      color: var(--text2);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-a { max-height: 200px; }
+
+    /* ─── PRICE ─── */
+    .price-section {
+      padding: 100px 24px;
+      background: var(--bg2);
+    }
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      text-align: center;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .price-card:hover {
+      border-color: rgba(239,68,68,0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .price-card.featured {
+      background: linear-gradient(145deg, rgba(239,68,68,0.1), rgba(249,115,22,0.06));
+      border-color: rgba(239,68,68,0.35);
+    }
+    .price-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--red);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+    .price-period {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .price-val {
+      font-size: 2.2rem;
       font-weight: 900;
       letter-spacing: -0.04em;
-      line-height: 1;
-      background: linear-gradient(135deg, var(--accent3), var(--accent1));
+      margin-bottom: 4px;
+    }
+    .price-val.featured-val {
+      background: linear-gradient(120deg, var(--red), var(--red2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      display: block;
-      margin-bottom: 6px;
     }
-    .big-num-label { font-size: 0.88rem; color: var(--muted); }
-
-    /* ─── Divider line ─── */
-    .divider {
-      width: 40px;
-      height: 3px;
-      border-radius: 2px;
-      margin-bottom: 14px;
-    }
-    .tile-purple .divider { background: var(--accent1); }
-    .tile-pink   .divider { background: var(--accent2); }
-    .tile-blue   .divider { background: var(--accent3); }
-    .tile-green  .divider { background: var(--accent4); }
-    .tile-orange .divider { background: var(--accent5); }
-
-    /* ─── Footer ─── */
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 24px;
-      border-top: 1px solid var(--border);
-      font-size: 0.78rem;
+    .price-note {
+      font-size: 0.8rem;
       color: var(--muted);
+      margin-bottom: 20px;
     }
-    footer a { color: var(--muted); text-decoration: none; }
-    footer a:hover { color: var(--text); }
+    .price-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+    }
+    .price-features li {
+      font-size: 0.85rem;
+      color: var(--text2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .price-features li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+    .price-events {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .event-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(249,115,22,0.05));
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+    }
+    .event-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .event-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .event-text span {
+      font-size: 0.82rem;
+      color: var(--text2);
+    }
 
-    /* ─── Scroll-in animation ─── */
-    .tile {
+    /* ─── CONTACT CTA ─── */
+    .contact-section {
+      padding: 40px 24px 80px;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 13px 22px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border2);
+      background: var(--surface2);
+      color: var(--text);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .contact-btn:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+    .contact-btn.kakao {
+      background: #FEE500;
+      border-color: #FEE500;
+      color: #3B1F1F;
+    }
+    .contact-btn.kakao:hover {
+      background: #f5dc00;
+      transform: translateY(-2px);
+    }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+      padding: 100px 24px;
+      background: linear-gradient(135deg, var(--bg2) 0%, rgba(239,68,68,0.06) 50%, var(--bg2) 100%);
+      text-align: center;
+    }
+    .final-cta h2 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .final-cta h2 em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .final-cta p {
+      font-size: 1.1rem;
+      color: var(--text2);
+      margin-bottom: 40px;
+    }
+    .final-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.8;
+    }
+    footer strong { color: var(--text2); }
+
+    /* ─── SCROLL FADE IN ─── */
+    .fade-in {
       opacity: 0;
-      transform: translateY(24px);
-      animation: slidein 0.5s ease forwards;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    @keyframes slidein {
-      to { opacity: 1; transform: translateY(0); }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
-    .tile:nth-child(1)  { animation-delay: 0.05s; }
-    .tile:nth-child(2)  { animation-delay: 0.10s; }
-    .tile:nth-child(3)  { animation-delay: 0.15s; }
-    .tile:nth-child(4)  { animation-delay: 0.20s; }
-    .tile:nth-child(5)  { animation-delay: 0.25s; }
-    .tile:nth-child(6)  { animation-delay: 0.30s; }
-    .tile:nth-child(7)  { animation-delay: 0.35s; }
-    .tile:nth-child(8)  { animation-delay: 0.40s; }
 
-    /* ─── Responsive ─── */
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 860px) {
-      .col-4, .col-5, .col-6, .col-7, .col-8 { grid-column: span 12; }
-      .env-grid { grid-template-columns: 1fr 1fr; }
+      .empathy-grid { grid-template-columns: 1fr; }
+      .adv-grid { grid-template-columns: 1fr; }
+      .steps-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+      .steps-row::before { display: none; }
+      .price-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .price-events { grid-template-columns: 1fr; }
+      .facility-placeholder-grid { grid-template-columns: repeat(2, 1fr); }
+      .facility-item:first-child { grid-column: span 2; }
+      .recommend-grid { grid-template-columns: 1fr; max-width: 480px; }
     }
     @media (max-width: 540px) {
-      .bento { padding: 0 16px 60px; gap: 12px; }
-      .tile { padding: 22px; }
-      .hero { padding: 56px 20px 40px; }
-      .env-grid { grid-template-columns: 1fr; }
-      .stat-row { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
+      .steps-row { grid-template-columns: 1fr; }
+      .facility-placeholder-grid { grid-template-columns: 1fr; }
+      .facility-item:first-child { grid-column: span 1; aspect-ratio: 4/3; }
+      .empathy-answer { padding: 32px 24px; }
+      .adv-card { padding: 28px 24px; }
     }
   </style>
 </head>
 <body>
 
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-logo">머슬팩토리 <span>경상대점</span></div>
+  <div class="nav-links">
+    <a href="#advantages">장점</a>
+    <a href="#steps">이용방법</a>
+    <a href="#price">가격</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="nav-cta">상담 문의</a>
+  </div>
+</nav>
+
 <!-- ─── HERO ─── -->
-<header class="hero">
-  <span class="hero-paw">🐾</span>
-  <div class="hero-badge">🐱 집사 입문 가이드</div>
-  <h1 class="hero-title">고양이 잘<br>키우는 법</h1>
-  <p class="hero-sub">초보 집사도 쉽게 따라할 수 있는 핵심 정보를 한 페이지에 모았어요.</p>
-</header>
-
-<!-- ─── BENTO ─── -->
-<main class="bento">
-
-  <!-- 준비물 -->
-  <div class="tile tile-purple col-5">
-    <div class="tile-label label-purple">🛒 준비물</div>
-    <div class="divider"></div>
-    <h2>입양 전 체크리스트</h2>
-    <div class="tag-cloud">
-      <span class="tag">사료 + 물그릇</span>
-      <span class="tag">화장실</span>
-      <span class="tag">고양이 모래</span>
-      <span class="tag">모래삽</span>
-      <span class="tag">스크래처</span>
-      <span class="tag">캣타워</span>
-      <span class="tag">낚싯대 장난감</span>
-      <span class="tag">이동장</span>
-      <span class="tag">털 브러시</span>
-      <span class="tag">동물병원 예약</span>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      진주 가좌동 · 경상대 근처 · 24시간 운영
     </div>
-  </div>
+    <h1 class="hero-title">
+      운동 처음이어도<br>
+      <span class="highlight">괜찮습니다.</span>
+    </h1>
+    <p class="hero-sub-title">기구 몰라도 괜찮습니다.<br>바로 옆에서 알려드릴게요.</p>
+    <p class="hero-desc">24시간 운영 · 트레이너 상주<br>가좌동 누구나 편하게 시작하는 헬스장</p>
 
-  <!-- 먹이 -->
-  <div class="tile tile-orange col-7">
-    <div class="tile-label label-orange">🍖 식이 관리</div>
-    <div class="divider"></div>
-    <h2>먹이 & 영양</h2>
-    <ul class="checklist">
-      <li>나이별 사료 선택 — 키튼 / 어덜트 / 시니어로 구분</li>
-      <li>고단백·저탄수화물 위주 식단이 기본</li>
-      <li>신선한 물 상시 제공 (음수 부족 → 신장 질환 위험)</li>
-      <li>사료 교체는 일주일에 걸쳐 천천히 전환</li>
-    </ul>
-    <div class="alert">
-      <span class="alert-icon">⚠️</span>
-      <div><strong>절대 금지 :</strong> 양파, 마늘, 초콜릿, 포도·건포도, 날고기, 우유</div>
+    <div class="hero-tags">
+      <div class="hero-tag">🕐 24시간 운영</div>
+      <div class="hero-tag">👨‍💼 트레이너 상주</div>
+      <div class="hero-tag">🔰 초보 환영</div>
+      <div class="hero-tag">📍 경상대 근처</div>
     </div>
-  </div>
 
-  <!-- 통계 카드 -->
-  <div class="tile tile-blue col-4">
-    <div class="tile-label label-blue">📊 핵심 숫자</div>
-    <div class="divider"></div>
-    <div class="stat-row">
-      <div class="stat-box">
-        <span class="stat-val" style="color:var(--accent3);">15+</span>
-        <span class="stat-lbl">평균 수명(년)</span>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">💬 상담 문의하기</a>
+      <a href="#price" class="btn-secondary">가격 안내 보기</a>
+      <a href="#facility" class="btn-secondary">시설 사진 보기</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-val">24시간</div>
+        <div class="hero-stat-lbl">연중무휴 운영</div>
       </div>
-      <div class="stat-box">
-        <span class="stat-val" style="color:var(--accent1);">N+1</span>
-        <span class="stat-lbl">권장 화장실 수</span>
+      <div>
+        <div class="hero-stat-val">상주</div>
+        <div class="hero-stat-lbl">트레이너 배치</div>
       </div>
-      <div class="stat-box">
-        <span class="stat-val" style="color:var(--accent4);">20분</span>
-        <span class="stat-lbl">하루 최소 놀이</span>
+      <div>
+        <div class="hero-stat-val">0원</div>
+        <div class="hero-stat-lbl">기구 안내 비용</div>
       </div>
-      <div class="stat-box">
-        <span class="stat-val" style="color:var(--accent5);">연 1회</span>
-        <span class="stat-lbl">예방접종 주기</span>
+      <div>
+        <div class="hero-stat-val">경상대</div>
+        <div class="hero-stat-lbl">도보 접근 가능</div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- 화장실 -->
-  <div class="tile tile-green col-4">
-    <div class="tile-label label-green">🚽 화장실</div>
-    <div class="divider"></div>
-    <h2>화장실 관리</h2>
-    <ul class="checklist">
-      <li>고양이 수 +1개 배치</li>
-      <li>조용하고 방해받지 않는 공간</li>
-      <li>무향 응고 모래 권장</li>
-      <li>매일 응고물 제거</li>
-      <li>주 1회 전체 모래 교체</li>
-    </ul>
+<!-- ─── EMPATHY ─── -->
+<section class="empathy-section" id="empathy">
+  <div class="sec-header fade-in">
+    <div class="sec-tag">공감 · Empathy</div>
+    <h2 class="sec-title">이런 고민이 있으신가요?</h2>
+    <p class="sec-desc">처음 헬스장을 고민하는 분들이 가장 많이 하는 생각들입니다.</p>
   </div>
 
-  <!-- 건강 -->
-  <div class="tile tile-pink col-4">
-    <div class="tile-label label-pink">💉 건강</div>
-    <div class="divider"></div>
-    <h2>건강 관리</h2>
-    <ul class="checklist">
-      <li>입양 직후 동물병원 초진 예약</li>
-      <li>종합백신 + 광견병 (연 1회)</li>
-      <li>내·외부 구충제 정기 투여</li>
-      <li>중성화 수술 권장 (생후 6개월)</li>
-      <li>식욕·음수·배변 매일 체크</li>
-    </ul>
-  </div>
-
-  <!-- 그루밍 -->
-  <div class="tile tile-purple col-4">
-    <div class="tile-label label-purple">✂️ 그루밍</div>
-    <div class="divider"></div>
-    <h2>몸단장</h2>
-    <ul class="checklist">
-      <li>단모종 주 1~2회 / 장모종 매일 빗질</li>
-      <li>귀 청소 + 발톱 관리 (2~3주마다)</li>
-      <li>양치질 매일 (고양이 전용 치약)</li>
-      <li>목욕은 꼭 필요할 때만</li>
-    </ul>
-  </div>
-
-  <!-- 환경 -->
-  <div class="tile tile-blue col-12">
-    <div class="tile-label label-blue">🏠 생활 환경 & 스트레스 관리</div>
-    <div class="divider"></div>
-    <h2>행복한 공간 만들기</h2>
-    <div class="env-grid">
-      <div class="env-item">
-        <span class="env-icon">🌞</span>
-        <p>창가에 햇볕 드는 자리를 마련해 주세요. 일광욕은 고양이의 기분을 크게 올려줘요.</p>
-      </div>
-      <div class="env-item">
-        <span class="env-icon">🎮</span>
-        <p>하루 최소 10~20분, 낚싯대·레이저·장난감으로 함께 놀아주세요.</p>
-      </div>
-      <div class="env-item">
-        <span class="env-icon">🗼</span>
-        <p>캣타워나 선반 등 높은 곳에 올라갈 수 있는 공간이 반드시 필요해요.</p>
-      </div>
-      <div class="env-item">
-        <span class="env-icon">🧶</span>
-        <p>스크래처를 여러 곳에 배치해 가구 손상을 막고 스트레스를 해소시켜요.</p>
-      </div>
-      <div class="env-item">
-        <span class="env-icon">🤫</span>
-        <p>큰 소리나 갑작스러운 움직임은 고양이에게 강한 스트레스를 줍니다.</p>
-      </div>
-      <div class="env-item">
-        <span class="env-icon">📦</span>
-        <p>박스·터널처럼 혼자 숨을 수 있는 안전한 공간을 꼭 만들어 주세요.</p>
-      </div>
+  <div class="empathy-grid">
+    <div class="empathy-card fade-in">
+      <div class="empathy-who">🎓 학생</div>
+      <h3>헬스장 가고 싶은데…</h3>
+      <ul class="empathy-worries">
+        <li>헬스장 기구 하나도 모르겠는데…</li>
+        <li>혼자 가면 민망할까봐 못 가겠어</li>
+        <li>PT 강제로 시키지 않을까?</li>
+        <li>시험기간엔 늦게까지 운동하고 싶은데</li>
+      </ul>
+    </div>
+    <div class="empathy-card fade-in">
+      <div class="empathy-who">💼 직장인</div>
+      <h3>퇴근 후 운동하고 싶은데…</h3>
+      <ul class="empathy-worries">
+        <li>퇴근하면 늦은 시간인데 운동할 곳이 없음</li>
+        <li>교대근무라 시간이 불규칙해서</li>
+        <li>운동 습관 들이기 전에 장기권 끊기가 부담돼</li>
+        <li>새벽에 일어나 아침 운동 해보고 싶어</li>
+      </ul>
+    </div>
+    <div class="empathy-card fade-in">
+      <div class="empathy-who">🌿 초보·시니어</div>
+      <h3>운동 시작해보고 싶은데…</h3>
+      <ul class="empathy-worries">
+        <li>허리가 아픈데 어떤 운동을 해야 하지?</li>
+        <li>나이 있는데 헬스장 가도 되나?</li>
+        <li>기구 잘못 쓰다가 다칠까봐 무서워</li>
+        <li>처음인데 눈치 보일 것 같아서 못 가겠어</li>
+      </ul>
     </div>
   </div>
 
-  <!-- 행동 언어 -->
-  <div class="tile tile-orange col-12">
-    <div class="tile-label label-orange">💬 행동 언어</div>
-    <div class="divider"></div>
-    <h2>고양이가 말하는 방법</h2>
-    <div class="behavior-list" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
-      <div class="behavior-item">
-        <span class="behavior-emoji">😺</span>
-        <div class="behavior-text">
-          <strong>꾹꾹이 (꾹꾹 밟기)</strong>
-          <span>편안하고 행복하다는 신호</span>
+  <div class="empathy-answer fade-in">
+    <h2>머슬팩토리 경상대점은<br>운동 잘하는 사람만 오는 곳이 아닙니다.</h2>
+    <p>
+      처음 운동하는 분, 기구 사용이 어려운 분,<br>
+      혼자 시작하기 부담스러운 분들도<br>
+      편하게 이용할 수 있도록 도와드립니다.
+    </p>
+  </div>
+</section>
+
+<!-- ─── ADVANTAGES ─── -->
+<section class="advantages-section" id="advantages">
+  <div class="sec-header fade-in">
+    <div class="sec-tag">핵심 장점 · Features</div>
+    <h2 class="sec-title">왜 머슬팩토리인가요?</h2>
+    <p class="sec-desc">다른 헬스장과 확실히 다른 이유가 있습니다.</p>
+  </div>
+
+  <div class="adv-grid container">
+    <div class="adv-card fade-in">
+      <span class="adv-icon">🕐</span>
+      <div class="adv-num">장점 01</div>
+      <h3>24시간 운영</h3>
+      <div class="adv-quote">"내 시간에 운동하세요"</div>
+      <ul class="adv-list">
+        <li>새벽 운동 가능 — 아침형 인간도 OK</li>
+        <li>야간 운동 가능 — 늦게 퇴근해도 OK</li>
+        <li>시험기간 학생 이용 가능</li>
+        <li>교대근무·직장인 누구나 가능</li>
+      </ul>
+    </div>
+
+    <div class="adv-card adv-highlight fade-in">
+      <span class="adv-icon">👨‍💼</span>
+      <div class="adv-num">장점 02</div>
+      <h3>트레이너 상주</h3>
+      <div class="adv-quote">"이 기구 어떻게 써요?" — 편하게 물어보세요. 바로 알려드립니다.</div>
+      <ul class="adv-list">
+        <li>대부분 헬스장: 기구만 있고 물어보기 어려움</li>
+        <li>머슬팩토리: 언제든 바로 물어볼 수 있음</li>
+        <li>초보 응대 전문 — 쉽게 설명해 드립니다</li>
+        <li>시니어도 친절하게 안내 가능</li>
+      </ul>
+    </div>
+
+    <div class="adv-card fade-in">
+      <span class="adv-icon">🔰</span>
+      <div class="adv-num">장점 03</div>
+      <h3>운동 초보 환영</h3>
+      <div class="adv-quote">PT 등록 안 해도 기본 사용법 안내 가능합니다.</div>
+      <ul class="adv-list">
+        <li>PT 강매 절대 없음 — 자유운동 회원 우대</li>
+        <li>기구 사용법 무료 안내</li>
+        <li>처음 오시는 분들도 많습니다</li>
+        <li>부담 없이 자유롭게 운동하세요</li>
+      </ul>
+    </div>
+
+    <div class="adv-card fade-in">
+      <span class="adv-icon">📍</span>
+      <div class="adv-num">장점 04</div>
+      <h3>가좌동 접근성</h3>
+      <div class="adv-quote">경상대 근처, 가좌동 주민이라면 걸어서 오세요.</div>
+      <ul class="adv-list">
+        <li>경상대학교 도보권</li>
+        <li>가좌동 자취생 생활권 내</li>
+        <li>주차 가능</li>
+        <li>엘리베이터 이용 가능</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FACILITY ─── -->
+<section class="facility-section" id="facility">
+  <div class="sec-header fade-in">
+    <div class="sec-tag">시설 소개 · Facility</div>
+    <h2 class="sec-title">쾌적한 시설을 확인하세요</h2>
+    <p class="sec-desc">넓고 깔끔한 공간에서 편하게 운동하세요.</p>
+  </div>
+
+  <div class="facility-placeholder-grid">
+    <div class="facility-item fade-in">
+      <span class="fac-icon">🏋️</span>
+      <span>전체 전경 · 웨이트 존</span>
+    </div>
+    <div class="facility-item fade-in">
+      <span class="fac-icon">🚴</span>
+      <span>유산소 존</span>
+    </div>
+    <div class="facility-item fade-in">
+      <span class="fac-icon">🧘</span>
+      <span>스트레칭 존</span>
+    </div>
+    <div class="facility-item fade-in">
+      <span class="fac-icon">🚿</span>
+      <span>샤워실</span>
+    </div>
+    <div class="facility-item fade-in">
+      <span class="fac-icon">🔐</span>
+      <span>락커룸</span>
+    </div>
+    <div class="facility-item fade-in">
+      <span class="fac-icon">👋</span>
+      <span>트레이너 안내</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RECOMMEND ─── -->
+<section class="recommend-section" id="recommend">
+  <div class="sec-header fade-in">
+    <div class="sec-tag">추천 대상 · Who is it for?</div>
+    <h2 class="sec-title">이런 분들에게 추천합니다</h2>
+    <p class="sec-desc">머슬팩토리 경상대점이 딱 맞는 분들입니다.</p>
+  </div>
+
+  <div class="recommend-grid">
+    <div class="rec-item fade-in">
+      <div class="rec-check">✓</div>
+      <span>헬스 처음 시작하는 분</span>
+    </div>
+    <div class="rec-item fade-in">
+      <div class="rec-check">✓</div>
+      <span>PT 없이 운동 배우고 싶은 분</span>
+    </div>
+    <div class="rec-item fade-in">
+      <div class="rec-check">✓</div>
+      <span>새벽·야간 운동이 필요한 직장인</span>
+    </div>
+    <div class="rec-item fade-in">
+      <div class="rec-check">✓</div>
+      <span>경상대학교 학생</span>
+    </div>
+    <div class="rec-item fade-in">
+      <div class="rec-check">✓</div>
+      <span>다이어트 시작하려는 분</span>
+    </div>
+    <div class="rec-item fade-in">
+      <div class="rec-check">✓</div>
+      <span>부모님 운동 알아보는 가족</span>
+    </div>
+    <div class="rec-item fade-in">
+      <div class="rec-check">✓</div>
+      <span>혼자 운동 시작하기 어려운 분</span>
+    </div>
+    <div class="rec-item fade-in">
+      <div class="rec-check">✓</div>
+      <span>여성 혼자 이용하고 싶은 분</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STEPS ─── -->
+<section class="steps-section" id="steps">
+  <div class="sec-header fade-in">
+    <div class="sec-tag">이용 흐름 · How It Works</div>
+    <h2 class="sec-title">딱 4단계면 됩니다</h2>
+    <p class="sec-desc">처음이라도 걱정하지 마세요. 전 과정을 함께합니다.</p>
+  </div>
+
+  <div class="steps-row">
+    <div class="step fade-in">
+      <div class="step-num">1</div>
+      <div class="step-label">STEP 01</div>
+      <h3>상담 문의</h3>
+      <p>카카오톡 또는 전화로 편하게 문의하세요. 부담 없이 질문하셔도 됩니다.</p>
+    </div>
+    <div class="step fade-in">
+      <div class="step-num">2</div>
+      <div class="step-label">STEP 02</div>
+      <h3>시설 안내 &amp; 상담</h3>
+      <p>방문하시면 시설을 직접 보고 운동 목적에 맞게 상담해드립니다.</p>
+    </div>
+    <div class="step fade-in">
+      <div class="step-num">3</div>
+      <div class="step-label">STEP 03</div>
+      <h3>기구 사용법 설명</h3>
+      <p>처음 오시는 분들께 기본 기구 사용법을 친절하게 안내해드립니다.</p>
+    </div>
+    <div class="step fade-in">
+      <div class="step-num">4</div>
+      <div class="step-label">STEP 04</div>
+      <h3>자유 운동 시작</h3>
+      <p>이제 편하게 내 페이스로 운동하시면 됩니다. 궁금한 건 언제든 물어보세요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="faq-section" id="faq">
+  <div class="sec-header fade-in">
+    <div class="sec-tag">자주 묻는 질문 · FAQ</div>
+    <h2 class="sec-title">궁금한 점이 있으신가요?</h2>
+    <p class="sec-desc">가장 많이 물어보시는 질문들을 모았습니다.</p>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q-text">
+          <span class="faq-q-badge">Q</span>
+          헬스 처음인데 괜찮나요?
+        </div>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          처음 오시는 분들도 많습니다. 오히려 처음부터 올바른 자세와 방법을 배우시는 게 가장 좋습니다. 트레이너가 기본 사용법을 친절하게 안내해드리니 걱정 마시고 방문해 주세요.
         </div>
       </div>
-      <div class="behavior-item">
-        <span class="behavior-emoji">🐾</span>
-        <div class="behavior-text">
-          <strong>꼬리 꼿꼿이 세우기</strong>
-          <span>인사하거나 기분이 좋을 때</span>
+    </div>
+
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q-text">
+          <span class="faq-q-badge">Q</span>
+          기구 사용법 알려주시나요?
+        </div>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          가능합니다. 트레이너가 항상 상주하고 있으니 편하게 문의해 주세요. 추가 비용 없이 기본 기구 사용법을 안내해드립니다.
         </div>
       </div>
-      <div class="behavior-item">
-        <span class="behavior-emoji">😽</span>
-        <div class="behavior-text">
-          <strong>그루밍 해주기</strong>
-          <span>상대를 신뢰·애정하는 표현</span>
+    </div>
+
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q-text">
+          <span class="faq-q-badge">Q</span>
+          PT 꼭 받아야 하나요?
+        </div>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          아닙니다. 자유운동 회원으로도 충분히 이용하실 수 있습니다. PT 강매는 절대 없습니다. 원하시는 분들께만 PT를 제안드립니다.
         </div>
       </div>
-      <div class="behavior-item">
-        <span class="behavior-emoji">😾</span>
-        <div class="behavior-text">
-          <strong>귀를 뒤로 젖힘</strong>
-          <span>불안하거나 경계·공격 상태</span>
+    </div>
+
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q-text">
+          <span class="faq-q-badge">Q</span>
+          여성 혼자 이용해도 괜찮나요?
+        </div>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          여성 회원분들도 편하게 이용 중입니다. 쾌적하고 안전한 환경을 유지하고 있으니 안심하고 방문해 주세요.
         </div>
       </div>
-      <div class="behavior-item">
-        <span class="behavior-emoji">😿</span>
-        <div class="behavior-text">
-          <strong>과도한 숨기</strong>
-          <span>스트레스 또는 통증 신호</span>
+    </div>
+
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q-text">
+          <span class="faq-q-badge">Q</span>
+          새벽에도 이용 가능한가요?
+        </div>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          24시간 운영입니다. 새벽, 야간 구분 없이 언제든 이용하실 수 있습니다.
         </div>
       </div>
-      <div class="behavior-item">
-        <span class="behavior-emoji">😸</span>
-        <div class="behavior-text">
-          <strong>느린 눈 깜빡임</strong>
-          <span>"나 너 좋아해" 고양이식 표현</span>
+    </div>
+
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q-text">
+          <span class="faq-q-badge">Q</span>
+          학생 할인이 있나요?
+        </div>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          학생 할인이 준비되어 있습니다. 자세한 내용은 상담 문의를 통해 확인해 주세요. 경상대학교 학생분들은 별도 혜택이 있습니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q-text">
+          <span class="faq-q-badge">Q</span>
+          주차 가능한가요?
+        </div>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          주차 공간이 마련되어 있습니다. 엘리베이터도 이용 가능합니다. 자세한 위치는 문의 주시면 안내해드립니다.
         </div>
       </div>
     </div>
   </div>
+</section>
 
-</main>
+<!-- ─── PRICE ─── -->
+<section class="price-section" id="price">
+  <div class="sec-header fade-in">
+    <div class="sec-tag">가격 안내 · Pricing</div>
+    <h2 class="sec-title">합리적인 가격으로 시작하세요</h2>
+    <p class="sec-desc">정확한 가격은 상담 문의를 통해 확인해 주세요.</p>
+  </div>
 
+  <div class="price-grid">
+    <div class="price-card fade-in">
+      <div class="price-period">1개월</div>
+      <div class="price-val">단기권</div>
+      <div class="price-note">부담 없이 시작하기</div>
+      <ul class="price-features">
+        <li>24시간 자유 이용</li>
+        <li>기구 사용법 안내</li>
+        <li>샤워실·락커 이용</li>
+      </ul>
+    </div>
+    <div class="price-card featured fade-in">
+      <div class="price-badge">인기</div>
+      <div class="price-period">3개월</div>
+      <div class="price-val featured-val">추천</div>
+      <div class="price-note">가장 많이 선택하는 플랜</div>
+      <ul class="price-features">
+        <li>24시간 자유 이용</li>
+        <li>기구 사용법 안내</li>
+        <li>샤워실·락커 이용</li>
+        <li>장기 할인 적용</li>
+      </ul>
+    </div>
+    <div class="price-card fade-in">
+      <div class="price-period">6개월</div>
+      <div class="price-val">장기권</div>
+      <div class="price-note">최대 할인 혜택</div>
+      <ul class="price-features">
+        <li>24시간 자유 이용</li>
+        <li>기구 사용법 안내</li>
+        <li>샤워실·락커 이용</li>
+        <li>최대 할인 적용</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="price-events">
+    <div class="event-card fade-in">
+      <span class="event-icon">🎓</span>
+      <div class="event-text">
+        <strong>학생 할인</strong>
+        <span>경상대학교 학생증 지참 시 특별 할인 적용</span>
+      </div>
+    </div>
+    <div class="event-card fade-in">
+      <span class="event-icon">👫</span>
+      <div class="event-text">
+        <strong>친구 동반 이벤트</strong>
+        <span>친구와 함께 등록 시 추가 혜택 제공</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section class="contact-section" id="contact">
+  <div class="sec-header fade-in">
+    <div class="sec-tag">문의 · Contact</div>
+    <h2 class="sec-title">편하게 연락해 주세요</h2>
+    <p class="sec-desc">어떤 방법이든 괜찮습니다. 친절하게 답변드립니다.</p>
+  </div>
+  <div class="contact-row">
+    <a href="#" class="contact-btn kakao">
+      💬 카카오톡 문의
+    </a>
+    <a href="tel:010-0000-0000" class="contact-btn">
+      📞 전화 문의
+    </a>
+    <a href="#" class="contact-btn">
+      📍 위치 보기
+    </a>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta" id="final">
+  <div class="fade-in">
+    <h2>운동 잘해야<br>오는 곳이 <em>아닙니다.</em></h2>
+    <p>시작하려는 마음만 있으면 됩니다.</p>
+    <div class="final-btns">
+      <a href="#contact" class="btn-primary">💬 무료 상담 문의</a>
+      <a href="#steps" class="btn-secondary">이용 방법 보기</a>
+      <a href="#price" class="btn-secondary">가격 문의</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
 <footer>
-  정보 출처: Royal Canin KR &nbsp;·&nbsp; 나무위키 &nbsp;·&nbsp; 헬스경향 &nbsp;·&nbsp; catloversden.com &nbsp;·&nbsp; 2026
+  <strong>머슬팩토리 경상대점</strong><br>
+  진주시 가좌동 · 경상대학교 근처 · 24시간 운영<br><br>
+  <span style="color:#444">진주 헬스장 · 가좌동 헬스장 · 경상대 헬스장 · 24시 헬스장 · 초보 헬스장</span>
 </footer>
 
+<script>
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
